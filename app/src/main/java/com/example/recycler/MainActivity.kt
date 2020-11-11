@@ -2,7 +2,7 @@ package com.example.recycler
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
@@ -35,7 +35,31 @@ class MainActivity : AppCompatActivity() {
                 )
             )
         )
-        layoutManager = LinearLayoutManager(this)
+        CarList.add(
+                CarModel(
+                        "Mini Cooper",
+                        BitmapFactory.decodeResource(
+                                resources, R.drawable.icon1
+                        )
+                )
+        )
+        CarList.add(
+                CarModel(
+                        "BMW",
+                        BitmapFactory.decodeResource(
+                                resources, R.drawable.icon2
+                        )
+                )
+        )
+        CarList.add(
+                CarModel(
+                        "Mercedes Benz",
+                        BitmapFactory.decodeResource(
+                                resources, R.drawable.icon3
+                        )
+                )
+        )
+        layoutManager = GridLayoutManager(this, 3)
         rvCarList.layoutManager = layoutManager
         rvCarList.adapter = RecyclerViewAdapter(this, CarList)
     }
